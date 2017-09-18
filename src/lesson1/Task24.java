@@ -1,6 +1,7 @@
 package lesson1;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * You have two classes:
@@ -56,6 +57,7 @@ public class Task24 {
      * Calculates the general sum of canceled transactions for all non empty accounts in the list
      */
     public static long calcSumOfCanceledTransOnNonEmptyAccounts(List<Account> accounts) {
+
         // write your code here
         return accounts.stream()
                        .filter(i -> i.getBalance()>0 )
