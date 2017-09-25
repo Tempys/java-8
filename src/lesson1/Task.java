@@ -1,10 +1,7 @@
 package lesson1;
 
-
 import java.util.function.BiFunction;
 import java.util.function.IntBinaryOperator;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * Write three operators:
@@ -16,8 +13,8 @@ import java.util.stream.Stream;
 
  To simplify the problem all functions are declared, you need to finish their realization.
  Look carefully at definition of each operator.
- During testing all three operators will be tested. The left boundary <= the right boundary.
 
+ During testing all three operators will be tested. The left boundary <= the right boundary.
 
  Example 1. Left boundary = 1, right boundary = 4.
  sumOperator returns the result 10.
@@ -27,29 +24,21 @@ import java.util.stream.Stream;
  productOperator returns the result 30.
  ﻿If the task is too hard for you, see theory lesson on currying, URL: https://stepik.org/lesson/Returning-functions-and-currying-35160/step/1?course=Java-Functional-progr...﻿
  */
-public class Task35 {
-
-    public static void main(String[] args) {
-
-        System.out.println(sumOperator.applyAsInt(1,4));
-        System.out.println(productOperator.applyAsInt(1,4));
-    }
-
+public class Task {
 
     /**
      * The operator combines all values in the given range into one value
      * using combiner and initial value (seed)
      */
-    public static final BiFunction<Integer, IntBinaryOperator, IntBinaryOperator> reduceIntOperator = (x,y)  -> (z,d) -> IntStream.rangeClosed(z,d).reduce(x,y);
+    public static final BiFunction<Integer, IntBinaryOperator, IntBinaryOperator> reduceIntOperator = null;
 
     /**
      * The operator calculates the sum in the given range (inclusively)
      */
-    public static final IntBinaryOperator sumOperator = reduceIntOperator.apply(0,(left, right) -> left+right);// write your code here
+    public static final IntBinaryOperator sumOperator = null ;// write your code here
 
     /**
      * The operator calculates the product in the given range (inclusively)
      */
-    public static final IntBinaryOperator productOperator = reduceIntOperator.apply(1,(left, right) -> left*right);// write your code here
-
+    public static final IntBinaryOperator productOperator = null; // write your code here
 }

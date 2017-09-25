@@ -33,12 +33,31 @@ import java.util.stream.Collectors;
  */
 public class Task34 {
 
+    public static void main(String[] args) {
+        System.out.println( multTwoAndThenAddOneTransformation.apply(Arrays.asList(1, 1, 1)));
+        System.out.println( multTwoAndThenAddOneTransformation.apply(Arrays.asList(1, 2, 3)));
+
+        System.out.println( squareAndThenGetNextEvenNumberTransformation.apply(Arrays.asList(1, 1, 1)));
+        System.out.println( squareAndThenGetNextEvenNumberTransformation.apply(Arrays.asList(1, 2, 3)));
+    }
+
     /**
      * The function accepts a list of mappers and returns an operator that accepts a list of integers
      * and sequentially applies each mapper to each value (perform a transformation)
      */
-    public static final Function<List<IntUnaryOperator>, UnaryOperator<List<Integer>>> multifunctionalMapper =  null;  // x -> x.stream().map(i -> i.andThen(i)).collect(Collectors.toList());
+    public static final Function<List<IntUnaryOperator>, UnaryOperator<List<Integer>>> multifunctionalMapper1 = x -> y -> y.stream().map(integer ->{
 
+        int result = integer;
+
+        for(IntUnaryOperator operator : x){
+             result= operator.applyAsInt(result);
+      }
+
+      return result;
+    }).collect(Collectors.toList()) ;
+
+
+    public static final Function<List<IntUnaryOperator>, UnaryOperator<List<Integer>>> multifunctionalMapper = x -> y -> y.stream().map( integer -> x.stream().reduce(IntUnaryOperator::andThen).orElse(other -> other).applyAsInt(integer)).collect(Collectors.toList());
     /**
      * EXAMPLE: the operator transforms each number to the same number (perform the identity transformation)
      *
@@ -52,7 +71,7 @@ public class Task34 {
      *
      * The operator returns transformed integer list.
      */
-    public static final UnaryOperator<List<Integer>> multTwoAndThenAddOneTransformation = null;
+    public static final UnaryOperator<List<Integer>> multTwoAndThenAddOneTransformation = multifunctionalMapper.apply(Arrays.asList(x -> x*2,x -> x+1));
 
     /**
      * The operator accepts an integer list.
@@ -60,7 +79,7 @@ public class Task34 {
      *
      * The operator returns transformed integer list.
      */
-    public static final UnaryOperator<List<Integer>> squareAndThenGetNextEvenNumberTransformation = null;
+    public static final UnaryOperator<List<Integer>> squareAndThenGetNextEvenNumberTransformation = multifunctionalMapper.apply(Arrays.asList(x -> x*x, x -> ++x % 2 == 0 ? x : ++x));
 
 
 }
