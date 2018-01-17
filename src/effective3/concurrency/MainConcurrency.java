@@ -8,6 +8,8 @@ import java.util.concurrent.Executors;
 public class MainConcurrency {
 
     public static void main(String[] args) {
+
+
         ObservableSet<Integer> set =  new ObservableSet<>(new HashSet<>());
         //set.addObserver((s, e) -> System.out.println(e));
         set.addObserver(new SetObserver<Integer>() {
