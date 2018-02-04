@@ -13,5 +13,7 @@ public class Main {
         NutritionFacts facts = new NutritionFacts.Builder(240, 8).build();
         System.out.println(facts.getCalories());
 
+
+        System.out.println(ConciseSinglton.INSTANCE.getSum());
     }
 }
