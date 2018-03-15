@@ -21,8 +21,6 @@ public  class Favorites {
 
     public  <T> void setFavorite(T value){
         //jects.requireNonNull()
-
-
     }
 
 
@@ -32,7 +30,7 @@ public  class Favorites {
         s.add(1);
         s.add(2L);
         s.add(3d);
-      new String().getClass().asSubclass()
+
 
          new Favorites().setFavorite(new Integer(1));
     }
