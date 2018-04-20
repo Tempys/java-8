@@ -1,6 +1,7 @@
 package effective3.streams;
 
 import java.util.*;
+import java.util.stream.StreamSupport;
 
 import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.*;
@@ -74,6 +75,7 @@ public class GroupingTest {
         Map<String, Map<BlogPostType, List<BlogPost>>> map = posts.stream().collect(groupingBy(BlogPost::getAuthor,groupingBy(BlogPost::getType)));
         Map<BlogPostType, Optional<BlogPost>> maxLikesPerPostType = posts.stream().collect(groupingBy(BlogPost::getType, maxBy(comparingInt(BlogPost::getLikes))));
         Map<BlogPostType, String> postsPerType2 = posts.stream().collect(groupingBy(BlogPost::getType, mapping(BlogPost::getTitle, joining(", ", "Post titles: [", "]"))));
+
 
     }
 }
