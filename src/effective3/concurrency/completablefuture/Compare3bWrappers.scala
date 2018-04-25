@@ -3,7 +3,7 @@ package effective3.concurrency.completablefuture
 import scala.concurrent.Future
 
 
-class Compare3bWrappers {
+/*class Compare3bWrappers {
   // data structures
   case class Rss(feedAddress: String)
 
@@ -22,4 +22,4 @@ class Compare3bWrappers {
     Future.sequence(listOfFutureContents)
   }
 
-}
+}*/
