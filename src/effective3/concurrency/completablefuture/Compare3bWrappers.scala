@@ -3,9 +3,9 @@ package effective3.concurrency.completablefuture
 import scala.concurrent.Future
 
 
-/*class Compare3bWrappers {
+class Compare3bWrappers {
   // data structures
-  case class Rss(feedAddress: String)
+ /* case class Rss(feedAddress: String)
 
   // I/O operations: non-blocking, asynchronous
   def fetchFromDb[T](entityClass: Class[T], id: Long): Future[T] = ???
@@ -20,6 +20,6 @@ import scala.concurrent.Future
 
     // combining a list of futures into a future of a list
     Future.sequence(listOfFutureContents)
-  }
+  }*/
 
-}*/
+}
